@@ -24,7 +24,8 @@ if uploaded_file:
     with st.spinner("🧠 Scanning image..."):
         extracted_text = pytesseract.image_to_string(image)
         pyperclip.copy(extracted_text)
+        text_length = len(extracted_text) 
 
     st.success("✅ Text extracted and copied to clipboard!")
-    st.text_area("📋 Extracted Text", value=extracted_text, height=200)
+    st.text_area(f"📋 Extracted Text Has (Length: {text_length} characters)", value=extracted_text, height=200)
 
